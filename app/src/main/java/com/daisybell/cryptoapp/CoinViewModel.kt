@@ -3,6 +3,7 @@ package com.daisybell.cryptoapp
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import com.daisybell.cryptoapp.api.ApiFactory
 import com.daisybell.cryptoapp.database.AppDatabase
 import com.daisybell.cryptoapp.pojo.CoinPriceInfo
@@ -10,6 +11,7 @@ import com.daisybell.cryptoapp.pojo.CoinPriceInfoRowData
 import com.google.gson.Gson
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import java.util.concurrent.TimeUnit
 
 class CoinViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -18,11 +20,22 @@ class CoinViewModel(application: Application) : AndroidViewModel(application) {
 
     val priceList = db.coinPriceInfoDao().getPriceList();
 
-    fun loadData() {
+    fun getDetailInfo(fSym: String): LiveData<CoinPriceInfo> {
+        return db.coinPriceInfoDao().getPriceInfoAboutCoin(fSym)
+    }
+
+    init {
+        loadData()
+    }
+
+    private fun loadData() {
         val disposable = ApiFactory.apiService.getTopCoinsInfo(limit = 50)
             .map { it.data?.map { it.coinInfo?.name }?.joinToString(",") }
             .flatMap { ApiFactory.apiService.getFullPriceList(fSyms = it) }
             .map { getPriceListFromRawData(it) }
+            .delaySubscription(10, TimeUnit.SECONDS)
+            .repeat()
+            .retry()
             .subscribeOn(Schedulers.io())
             .subscribe({
                 db.coinPriceInfoDao().insertPriceList(it)
