@@ -1,4 +1,4 @@
-package com.daisybell.cryptoapp.pojo
+package com.daisybell.cryptoapp.data.model
 
 import com.google.gson.JsonObject
 import com.google.gson.annotations.Expose

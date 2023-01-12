@@ -1,7 +1,7 @@
-package com.daisybell.cryptoapp.api
+package com.daisybell.cryptoapp.data.network
 
-import com.daisybell.cryptoapp.pojo.CoinInfoListOfData
-import com.daisybell.cryptoapp.pojo.CoinPriceInfoRowData
+import com.daisybell.cryptoapp.data.model.CoinInfoListOfData
+import com.daisybell.cryptoapp.data.model.CoinPriceInfoRowData
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query

@@ -1,11 +1,12 @@
-package com.daisybell.cryptoapp
+package com.daisybell.cryptoapp.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.daisybell.cryptoapp.adapters.CoinInfoAdapter
-import com.daisybell.cryptoapp.pojo.CoinPriceInfo
+import com.daisybell.cryptoapp.R
+import com.daisybell.cryptoapp.presentation.adapters.CoinInfoAdapter
+import com.daisybell.cryptoapp.data.model.CoinPriceInfo
 import kotlinx.android.synthetic.main.activity_coin_price_list.*
 
 class CoinPriceListActivity : AppCompatActivity() {

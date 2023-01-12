@@ -1,13 +1,13 @@
-package com.daisybell.cryptoapp
+package com.daisybell.cryptoapp.presentation
 
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import com.daisybell.cryptoapp.api.ApiFactory
-import com.daisybell.cryptoapp.database.AppDatabase
-import com.daisybell.cryptoapp.pojo.CoinPriceInfo
-import com.daisybell.cryptoapp.pojo.CoinPriceInfoRowData
+import com.daisybell.cryptoapp.data.network.ApiFactory
+import com.daisybell.cryptoapp.data.database.AppDatabase
+import com.daisybell.cryptoapp.data.model.CoinPriceInfo
+import com.daisybell.cryptoapp.data.model.CoinPriceInfoRowData
 import com.google.gson.Gson
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers

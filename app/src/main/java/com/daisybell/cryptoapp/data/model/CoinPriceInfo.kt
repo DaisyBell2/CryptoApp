@@ -1,8 +1,8 @@
-package com.daisybell.cryptoapp.pojo
+package com.daisybell.cryptoapp.data.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.daisybell.cryptoapp.api.ApiFactory.BASE_IMAGE_URL
+import com.daisybell.cryptoapp.data.network.ApiFactory.BASE_IMAGE_URL
 import com.daisybell.cryptoapp.utils.convertTimestampToTime
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

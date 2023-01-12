@@ -1,11 +1,11 @@
-package com.daisybell.cryptoapp.database
+package com.daisybell.cryptoapp.data.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.daisybell.cryptoapp.pojo.CoinPriceInfo
+import com.daisybell.cryptoapp.data.model.CoinPriceInfo
 
 @Dao
 interface CoinPriceInfoDao {
