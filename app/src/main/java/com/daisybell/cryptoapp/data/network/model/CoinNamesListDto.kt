@@ -1,11 +1,11 @@
-package com.daisybell.cryptoapp.data.model
+package com.daisybell.cryptoapp.data.network.model
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 
-data class CoinInfoListOfData(
+data class CoinNamesListDto(
     @SerializedName("Data")
     @Expose
-    val data: List<Datum>? = null
+    val names: List<CoinNameContainerDto>? = null
 )
